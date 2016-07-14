@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import {Http} from "@angular/http";
 
 declare var ENV: string;
 
@@ -23,8 +22,8 @@ export class ConfigService {
         } else {
             this.settings = {
                 auth: {
-                    authorizeUrl: "https://reliacasing.lccv.ufal.br/oauth/authorize",
-                    clientId: "d33to6ydAH8wfRiNzWENtDs0RJiYeHS8xFF7i24u"
+                    authorizeUrl: "",
+                    clientId: ""
                 }
             }
         }
