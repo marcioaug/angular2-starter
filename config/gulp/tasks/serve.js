@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     bs = require("browser-sync"),
     historyApiFallback = require('connect-history-api-fallback');
 
-gulp.task('serve', [], function () {
+gulp.task('serve', ['typescript', 'typescript:watch'], function () {
     'use strict';
 
     var browserSync = bs.create();
@@ -32,7 +32,7 @@ gulp.task('serve', [], function () {
     browserSync.reload();
 });
 
-gulp.task('serve-dist', [], function () {
+gulp.task('serve-dist', ['build'], function () {
     'use strict';
 
     var browserSync = bs.create();

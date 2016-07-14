@@ -1,7 +1,6 @@
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app.component';
-import {enableProdMode} from "@angular/core";
-import {appRouterProviders} from "./app.routes";
+import { enableProdMode } from "@angular/core";
 
 declare var ENV: string;
 
@@ -10,5 +9,5 @@ if (ENV === "production") {
 }
 
 bootstrap(AppComponent, [
-    appRouterProviders
+
 ]);
