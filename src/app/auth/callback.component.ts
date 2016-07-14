@@ -3,8 +3,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import {AuthService} from "./auth.service";
 
 @Component({
-    template: '<p>Callback</p>',
-    providers: [AuthService]
+    template: '<p>Callback</p>'
 })
 export class CallbackComponent implements OnInit {
 
@@ -17,7 +16,7 @@ export class CallbackComponent implements OnInit {
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.authService.extractToken(location.href);
-            this.router.navigate(['/home/']);
+            this.router.navigate(['/']);
         });
     }
 }

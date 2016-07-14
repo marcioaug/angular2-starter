@@ -4,6 +4,9 @@ import { enableProdMode } from "@angular/core";
 import { routes } from "./app.routes";
 import { AuthGuardService } from "./auth/auth-guard.service";
 import { provideRouter } from "@angular/router";
+import { AuthService } from "./auth/auth.service";
+import { ConfigService } from "./config/config.service";
+import { HTTP_PROVIDERS } from "@angular/http";
 
 declare var ENV: string;
 
@@ -12,6 +15,9 @@ if (ENV === "production") {
 }
 
 bootstrap(AppComponent, [
+    HTTP_PROVIDERS,
     provideRouter(routes),
+    ConfigService,
+    AuthService,
     AuthGuardService
 ]);
