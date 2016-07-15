@@ -2,7 +2,7 @@ import { bootstrap }    from '@angular/platform-browser-dynamic';
 import { AppComponent } from './app.component';
 import { enableProdMode } from "@angular/core";
 import { routes } from "./app.routes";
-import { AuthGuardService } from "./auth/auth-guard.service";
+import { AuthGuard } from "./auth/auth.guard";
 import { provideRouter } from "@angular/router";
 import { AuthService } from "./auth/auth.service";
 import { ConfigService } from "./config/config.service";
@@ -19,5 +19,5 @@ bootstrap(AppComponent, [
     provideRouter(routes),
     ConfigService,
     AuthService,
-    AuthGuardService
+    AuthGuard
 ]);
