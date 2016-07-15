@@ -16,6 +16,7 @@ gulp.task('build', function (callback) {
         'clean',
         'build:systemjs',
         'usemin',
+        'copy:app',
         callback
     );
 });
@@ -60,4 +61,11 @@ gulp.task('usemin', function () {
             }
         ))
         .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('copy:app', function() {
+    'use strict';
+
+    return gulp.src('src/app/**/*.{css,html}')
+        .pipe(gulp.dest('dist/app'))
 });
