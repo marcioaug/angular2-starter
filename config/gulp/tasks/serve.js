@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     bs = require("browser-sync"),
     historyApiFallback = require('connect-history-api-fallback');
 
-gulp.task('serve', ['typescript', 'typescript:watch'], function () {
+gulp.task('serve', ['typescript', 'typescript:watch', 'sass:watch'], function () {
     'use strict';
 
     var browserSync = bs.create();
@@ -23,7 +23,7 @@ gulp.task('serve', ['typescript', 'typescript:watch'], function () {
             files: [
                 'src/index.html',
                 'src/systemjs.conf.js',
-                'src/assert/styles/main.css',
+                'src/assets/**/*.{js,css,html}',
                 'src/app/**/*.{js,css,html}'
             ]
         }

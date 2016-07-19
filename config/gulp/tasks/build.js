@@ -14,9 +14,11 @@ gulp.task('build', function (callback) {
 
     runSequence(
         'clean',
+        'sass',
         'build:systemjs',
         'usemin',
         'copy:app',
+        'copy:assets',
         callback
     );
 });
@@ -56,6 +58,7 @@ gulp.task('usemin', function () {
             {
                 html: [minifyHtml({ empty: true })],
                 js: [rev()],
+                css: [rev()],
                 jsApp: [rev()],
                 jsLib: [rev()]
             }
@@ -68,4 +71,17 @@ gulp.task('copy:app', function() {
 
     return gulp.src('src/app/**/*.{css,html}')
         .pipe(gulp.dest('dist/app'))
+});
+
+gulp.task('copy:assets', function() {
+    'use strict';
+
+    return gulp.src([
+        'src/assets/fonts/**/*.{ttf,woff,eof,svg}',
+        'src/assets/images/**/*',
+        'src/favicon.ico',
+        'src/nginx.conf',
+        'src/.htaccess'
+    ], {base: "src/"})
+        .pipe(gulp.dest('dist/'))
 });
